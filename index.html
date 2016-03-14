@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+
+    <script src="node_modules/rx/dist/rx.all.js"></script>
+    <script src="node_modules/rx-dom/dist/rx.dom.js"></script>
+
+    <title>Twitter Test</title>
+  </head>
+
+  <body>
+
+    <h1>Twitter Test</h1>
+
+    <script>
+      // DEBUG:
+
+      var port = 1337;
+      var ws = new WebSocket('ws://127.0.0.1:'+port);
+
+      ws.onmessage = function (event) {
+        document.write(event.data);
+        ws.send('clientMSG');
+      };
+    </script>
+  </body>
+</html>
